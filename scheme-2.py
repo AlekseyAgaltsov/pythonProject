@@ -35,9 +35,9 @@ def add_digit(count):
     canvas.create_text(600, 30, font='Arial 14', text=f'Фланцевая вставка {count} секций')
 
     def add_flange(flange):
-        canvas.create_rectangle(55, 100, 80, 440)
-        canvas.create_line(80, 100, 100, 120, width=1, arrowshape='5 10 5', )
-        canvas.create_line(80, 440, 100, 420, width=1, arrowshape='5 10 5', )
+        canvas.create_rectangle(55, 100, 80, 440, width=4)
+        canvas.create_line(80, 100, 100, 120, width=4, arrowshape='5 10 5', )
+        canvas.create_line(80, 440, 100, 420, width=4, arrowshape='5 10 5', )
 
         canvas.create_line(55, 100, 55, 70, width=1, arrowshape='5 10 5', )
         canvas.create_line(100, 120, 100, 70, width=1, arrowshape='5 10 5', )
@@ -45,9 +45,9 @@ def add_digit(count):
         canvas.create_line(55, 80, 100, 80, width=1, arrow=LAST, arrowshape='5 10 5', )
         canvas.create_text(75, 70, font='Arial 12', text=f'{flange}')
 
-        canvas.create_rectangle(1120, 100, 1145, 440)
-        canvas.create_line(1100, 120, 1120, 100, width=1, arrowshape='5 10 5', )
-        canvas.create_line(1100, 420, 1120, 440, width=1, arrowshape='5 10 5', )
+        canvas.create_rectangle(1120, 100, 1145, 440, width=4)
+        canvas.create_line(1100, 120, 1120, 100, width=4, arrowshape='5 10 5', )
+        canvas.create_line(1100, 420, 1120, 440, width=4, arrowshape='5 10 5', )
 
         canvas.create_line(1145, 100, 1145, 70, width=1, arrowshape='5 10 5', )
         canvas.create_line(1100, 120, 1100, 70, width=1, arrowshape='5 10 5', )
@@ -83,7 +83,7 @@ def add_digit(count):
         x1, y1, x2, y2 = 100, 100, 1100, 400
 
         for i in range(0, count):
-            canvas.create_line(x1, 80, x2, 80, width=1, arrow=FIRST, arrowshape='5 10 5', )  # размер общий
+            canvas.create_line(x1, 80, x2, 80, width=1, arrow=FIRST, arrowshape='5 10 5', )  # размер общий 
             canvas.create_line(x1, 80, x2, 80, width=1, arrow=LAST, arrowshape='5 10 5', )  # размер общий
             canvas.create_line(x1, 70, x1, 120, width=1, arrowshape='5 10 5', )
 
@@ -104,7 +104,7 @@ def add_digit(count):
         create_line(l, lfv)
 
         if count == 1:
-            canvas.create_rectangle(x1, y1, x2, y2)
+            canvas.create_rectangle(x1, y1, x2, y2, width=4)
             add_flange(flange)
             canvas.create_line(x1, 80, x2, 80, width=1, arrow=FIRST, arrowshape='5 10 5', )  # размер общий
             canvas.create_line(x1, 80, x2, 80, width=1, arrow=LAST, arrowshape='5 10 5', )  # размер общий
@@ -112,15 +112,15 @@ def add_digit(count):
 
         elif count == 2:
             create_line2(l)
-            canvas.create_rectangle(x1, y1, x2, y2)
+            canvas.create_rectangle(x1, y1, x2, y2, width=4)
             x1 = x1 + (l[0] * 1000) / 8200
-            canvas.create_rectangle(x1, y1, 1100, y2)
+            canvas.create_rectangle(x1, y1, 1100, y2, width=4)
             add_flange(flange)
 
         else:
             create_line3(l, count)
             for i in range(0, count):
-                canvas.create_rectangle(x1, y1, x2, y2)
+                canvas.create_rectangle(x1, y1, x2, y2, width=4)
                 x1 = x1 + (l[i] * 1000) / 8200
             add_flange(flange)
             # create_line(l)
